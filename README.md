@@ -91,3 +91,36 @@ val sprintConfig = Config(
 // Start Sprint with the configuration and callback
 sprint.start(sprintConfig, onRoundStart)
 ```
+---
+
+# Sprint Documentation
+
+## 2. Advanced Features
+
+### Dynamic Updates
+- **Update the number of iterations during runtime:**
+```kotlin
+  // sprint.updateIterations(5)
+```
+
+## Pause and Resume
+
+- **Pause the Sprint:**
+```kotlin
+  // sprint.pause()
+```
+
+## Resume the Sprint
+
+- **Resume the Sprint:**
+```kotlin
+  // sprint.resume()
+```
+
+## Thread Management
+
+- **Run the Sprint on the main thread:**
+```markdown
+  // sprint.updateDispatch(true)
+```
+
