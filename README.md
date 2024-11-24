@@ -76,19 +76,19 @@ Follow these steps to use Sprint in your project:
 ```kotlin
 val sprint = Sprint()
 
-// Define a callback function to execute at the start of each round
+Define a callback function to execute at the start of each round
 val onRoundStart: (timeMillis: Long, round: Long, roundType: RoundType) -> Unit = { timeMillis, round, roundType ->
     println("Round $round started at $timeMillis ms.")
 }
 
-// Create a Sprint configuration
+Create a Sprint configuration
 val sprintConfig = Config(
     intervalMillis = 1000, // Set the interval to 1000ms
     iterations = 10,       // Set the number of iterations to 10
     countDown = false      // Set countDown to false
 )
 
-// Start Sprint with the configuration and callback
+Start Sprint with the configuration and callback
 sprint.start(sprintConfig, onRoundStart)
 ```
 ---
@@ -100,27 +100,80 @@ sprint.start(sprintConfig, onRoundStart)
 ### Dynamic Updates
 - **Update the number of iterations during runtime:**
 ```kotlin
-  // sprint.updateIterations(5)
+  sprint.updateIterations(5)
 ```
 
 ## Pause and Resume
 
 - **Pause the Sprint:**
 ```kotlin
-  // sprint.pause()
+  sprint.pause()
 ```
 
 ## Resume the Sprint
 
 - **Resume the Sprint:**
 ```kotlin
-  // sprint.resume()
+  sprint.resume()
 ```
 
 ## Thread Management
 
 - **Run the Sprint on the main thread:**
-```markdown
-  // sprint.updateDispatch(true)
+```kotlin
+  sprint.updateDispatch(true)
 ```
+
+## Countdown Sprint
+
+- **Configure a countdown Sprint with 3 iterations and a 200ms interval:**
+```kotlin
+val countdownConfig = Config(
+    intervalMillis = 200, // Set the interval to 200ms
+     iterations = 3,       // Set the number of iterations to 3
+    countDown = true      // Enable countdown mode
+)
+
+Start the countdown Sprint
+sprint.start(countdownConfig, onRoundStart)
+```
+## Example Scenarios
+
+Here are some scenarios where Sprint can be applied effectively:
+
+- **Timers:** Create precise and customizable timers with defined intervals and durations.
+- **Countdowns:** Implement countdown timers for reminders, games, or quizzes.
+- **Dynamic Loops:** Adapt loop behavior dynamically based on runtime conditions.
+- **Concurrent Tasks:** Manage multiple time-sensitive tasks simultaneously for complex workflows.
+
+---
+
+## Benefits of Sprint
+
+- **Ease of Use:** Intuitive API for managing time-based tasks.
+- **Flexibility:** Suitable for various scenarios, including UI-related tasks and background operations.
+- **Precision:** Maintains reliable and consistent intervals.
+- **Robustness:** Handles edge cases gracefully, ensuring stability.
+
+---
+
+## Contribution
+
+We welcome contributions! Follow these steps to contribute:
+
+1. Fork the repository.
+2. Create a branch for your feature or fix.
+3. Submit a pull request for review.
+
+For major changes, please open an issue to discuss your ideas first.
+
+---
+
+## License
+
+Sprint is licensed under the MIT License. See the LICENSE file for more details.
+
+---
+
+Thank you for using Sprint! If you have any feedback, suggestions, or questions, feel free to reach out.
 
